@@ -4,3 +4,5 @@ def calculate_discount(price, discount):
     discountRate = discount / 100
     discountedPrice = price * discountRate
     return round(price - discountedPrice, 2)
+
+    
