@@ -1,14 +1,14 @@
 
 integerValue = int(999)
-floatingPoint = float(3.1433)
+floatingPoint = float(3.1435)
 stringValue = "My String"
 booleanValue = True
 
-def getFloat():
-    return floatingPoint
+def getFloat(value):
+    return floatingPoint * value
 
-def modulusInteger():
-    return integer / 3
+def divideInteger(value):
+    return integerValue // value
 
 def concatString():
     return stringValue + " and my new string"
