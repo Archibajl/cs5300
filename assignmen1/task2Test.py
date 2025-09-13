@@ -7,7 +7,7 @@ print(floatValue)
 
 
 def testMultiplyFloat():
-    floatValue = task2.getFloat(1)
+    floatValue = task2.getFloat(1.0)
     assert isinstance(floatValue, float)
     assert floatValue == 3.1435
 
