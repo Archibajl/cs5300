@@ -11,12 +11,14 @@ studentDatabase = {
     "Emily Zhang": "S1005"
 }
 
-
+#returns list of books
 def listOfFavoriteBooks():
     return listOfBooks
 
+#returns first 3 in list of books
 def listOfThreeFavoriteBooks():
     return listOfBooks[0:3]
 
+#returns student Database (dictionary)
 def getStudentDatabase():
     return studentDatabase

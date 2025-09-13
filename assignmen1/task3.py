@@ -14,7 +14,13 @@ def isZero(value):
     if(value == 0):
         return True
     return False
-
+""" Determiens prime numbers for how ever many prime numbers you want to get
+ Uses square root efficency improvement, tests all numbers before
+ the root of the origional number.
+ This works because all numbers 
+ after the root must be multiplied by one that comes before the root in order to be 
+equal to or less than the orrigional number.
+"""
 def printPrimeNumbers(numberOfPrimes):
     primeNumbers = [1]
     i=2
@@ -30,6 +36,7 @@ def printPrimeNumbers(numberOfPrimes):
 
     return primeNumbers
         
+#Counts and summs all numbers from 0 to 100
 def sumFirstHundredNumbers():
     sum = 0
     for i in range(101):
