@@ -3,7 +3,9 @@ import task7
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_squared_error
 
-# Assuming SimpleRegressor is defined above or imported
+# Sets up model data produced by copiolet, supposed sleep regression study
+#Ideally the train and test data are 2 seperate datasets but his one scails the data
+#to provide a somewhat different but similarly linear set of data for testsing.
 X = [
             [2, 5],
             [3, 6],
