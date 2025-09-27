@@ -3,4 +3,5 @@ from .views import seat_list_view
 
 urlpatterns = [
     path('seats/', seat_list_view, name='seat_bookings'),
+    path('/', name='base')
 ]
