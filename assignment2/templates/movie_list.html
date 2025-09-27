@@ -1,0 +1,22 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html>
+<!-- templates/movies/list.html -->
+{% extends 'base.html' %}
+{% block title %}Available Movies{% endblock %}
+{% block content %}
+<h2>Now Showing</h2>
+<ul>
+    {% for movie in movies %}
+    <li>
+        <h3>{{ movie.title }}</h3>
+        <p>Genre: {{ movie.genre }}</p>
+        <p>Release Date: {{ movie.release_date }}</p>
+        <a href="{% url 'book_seat' movie.id %}">Book Seats</a>
+    </li>
+    {% empty %}
+    <li>No movies available.</li>
+    {% endfor %}
+</ul>
+{% endblock %}
+</html>
