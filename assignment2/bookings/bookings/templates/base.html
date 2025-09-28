@@ -6,16 +6,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     {% block head %}
     <!-- Add custom stylesheets or meta tags here -->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
 </head>
 <body>
+    <script>
+        const currentPath = window.location.pathname;
+        console.log("current path: " + currentPath)
+    </script>
     <header>
         <h1>{% block header %}Welcome to My App{% endblock %}</h1>
         <nav>
-            <a href="{% url 'home' %}">Home</a>
-            <a href="{% url 'booking-list' %}">Bookings</a>
-            <a href="{% url 'seat-list' %}">Seats</a>
+            <a href="{% url 'movie-list' %}">Bookings</a>
+        </br>
+            <a href="{{ currentPath }}{% url 'seat-bookings' %}">Seats</a>
+        </br>
+            <a href="{{ currentPath }}{% url 'booking-history' %}">Seats</a>
         </nav>
     </header>
 

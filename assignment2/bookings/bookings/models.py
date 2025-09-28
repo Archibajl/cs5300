@@ -1,17 +1,17 @@
 from django.db import models
 
-class Movie(models.Model):
+class Movies(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
     releaseDate = models.DateField()
     duration = models.DurationField()
 
-class Seat(models.Model):
+class Seats(models.Model):
     seatNumber = models.IntegerField()
-    bookingStatus = models.Boolean()
+    bookingStatus = models.BooleanField(default=False)
     published = models.DateField()
 
-class Booking(models.Model):
-    movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
-    seat = models.ForignKey(Seat, on_delete=models.CASCADE)
+class Bookings(models.Model):
+    movie = models.ForeignKey(Movies, on_delete=models.CASCADE)
+    seat = models.ForeignKey(Seats, on_delete=models.CASCADE)
     bookingDate = models.DateField()

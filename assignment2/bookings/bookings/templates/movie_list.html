@@ -7,12 +7,12 @@
 {% block content %}
 <h2>Now Showing</h2>
 <ul>
-    {% for movie in movies %}
+    {% for movie in Movies %}
     <li>
         <h3>{{ movie.title }}</h3>
         <p>Genre: {{ movie.genre }}</p>
         <p>Release Date: {{ movie.release_date }}</p>
-        <a href="{% url 'book_seat' movie.id %}">Book Seats</a>
+        <a href="http://{{ host }}{% url 'seat_bookings' movie.id %}">Book Seats</a>
     </li>
     {% empty %}
     <li>No movies available.</li>
