@@ -2,17 +2,23 @@ from rest_framework import viewsets, serializers
 from .models import Movies
 from .models import Seats
 from .models import Bookings
+from rest_framework import serializers
+from .models import Movies, Seats, Bookings
+
 class MovieSerializer(serializers.ModelSerializer):
     class Meta:
         model = Movies
-        fields = '__all__'  # Or list specific fieds like ['title', 'genre']
-
-class BookingSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Bookings
-        fields = '__all__'  # Or specify fields like ['user', 'movie', 'seat', 'bookingStatus']
+        fields = ['id', 'title', 'description', 'releaseDate', 'duration']
 
 class SeatSerializer(serializers.ModelSerializer):
     class Meta:
         model = Seats
-        fields = '__all__'  # Or specify fields like ['row', 'number', 'isAvailable']
+        fields = ['id', 'seatNumber', 'bookingStatus', 'published']
+
+class BookingSerializer(serializers.ModelSerializer):
+    movie = MovieSerializer(read_only=True)
+    seat = SeatSerializer(read_only=True)
+    class Meta:
+        model = Bookings
+        fields = ['id', 'movie', 'seat', 'bookingDate']
+        

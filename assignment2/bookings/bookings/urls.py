@@ -21,7 +21,11 @@ from bookings import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('seats/', views.seat_list_view, name='seat-bookings'),
-    path('movies/', views.movies_view, name='movie-list'),
+    path('movies/', views.movies_view, name='movies-available'),
     path('history/', views.bookings_history_view, name='booking-history'),
-    path('', views.base_view, name='base')
+    path('', views.base_view, name='base'),
+    path('api/movies/', views.MovieListView.as_view(), name='movie-list'),
+    path('api/seats/', views.SeatListView.as_view(), name='seat-list'),
+    path('api/bookings/', views.BookingListView.as_view(), name='booking-list'),
+    path('api/bookings/create/', views.BookingCreateView.as_view(), name='booking-create'),
 ]

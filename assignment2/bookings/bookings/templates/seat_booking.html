@@ -4,20 +4,45 @@
     <title>Seat List</title>
 </head>
 <body>
-    <h1>Available Seats</h1>
-    <table border="1">
-        <tr>
-            <th>Seat Number</th>
-            <th>Booking Status</th>
-            <th>Published Date</th>
-        </tr>
-        {% for seat in seats %}
-        <tr>
-            <td>{{ seat.seatNumber }}</td>
-            <td>{{ seat.bookingStatus|yesno:"Booked,Available" }}</td>
-            <td>{{ seat.published }}</td>
-        </tr>
-        {% endfor %}
-    </table>
+    {% extends "base.html" %}
+    {% block title %}Available Seats{% endblock %}
+    
+    {% block content %}
+    <div class="container mt-5">
+        <h2 class="mb-4">🪑 Available Seats</h2>
+    
+        {% if seats %}
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">Seat Number</th>
+                        <th scope="col">Booking Status</th>
+                        <th scope="col">Published Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for seat in seats %}
+                    <tr>
+                        <td>{{ seat.seatNumber }}</td>
+                        <td>
+                            {% if seat.bookingStatus %}
+                                <span class="badge bg-danger">Booked</span>
+                            {% else %}
+                                <span class="badge bg-success">Available</span>
+                            {% endif %}
+                        </td>
+                        <td>{{ seat.published|date:"M d, Y" }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="alert alert-info">No seats available.</div>
+        {% endif %}
+    </div>
+    {% endblock %}
+    
 </body>
 </html>
