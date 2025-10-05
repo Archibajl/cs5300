@@ -1,16 +1,17 @@
 from django.db import models
+from datetime import date
 
 class Movies(models.Model):
     title = models.CharField(max_length=200)
     description = models.CharField(max_length=500)
-    releaseDate = models.DateField()
+    releaseDate = models.DateField(default=date.today)
     duration = models.DurationField()
 
 
 class Seats(models.Model):
-    seatNumber = models.IntegerField()
+    seatNumber = models.CharField(max_length=10)
     bookingStatus = models.BooleanField(default=False)
-    published = models.DateField()
+    published = models.DateField(default=date.today)
 
 
 class Bookings(models.Model):
