@@ -79,6 +79,10 @@ bookings/
    ```bash
    pip install django djangorestframework
    ```
+3. Make migrations:
+    ```bash
+   python manage.py makemigrations
+   ```
 
 3. Apply migrations:
    ```bash
@@ -140,3 +144,4 @@ Key settings in `bookings/settings.py`:
 ## License
 
 This project is for educational purposes (CS5300 Assignment 2).
+
